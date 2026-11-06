@@ -1,0 +1,19 @@
+# Python / uv
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+dist/
+build/
+
+# Podcastify working folders
+cache/
+output/
+*.wav
+*.mp3
+
+# Editors / OS
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store

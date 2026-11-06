@@ -1,0 +1,27 @@
+[project]
+name = "podcastify"
+version = "0.1.0"
+description = "Turn a PDF, blog post or YouTube video into a two-host podcast MP3, fully local."
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "espeakng-loader>=0.2.4",
+    "gradio>=6.31.0",
+    "ollama>=0.6.3",
+    "onnx-asr[cpu,hub]>=0.12.0",
+    "pydub>=0.25.1",
+    "pykokoro[cpu]>=0.10.10",
+    "pymupdf>=2.1",
+    "trafilatura>=2.3.1",
+    "truststore>=0.10.5",
+    "youtube-transcript-api>=1.2.5",
+    "yt-dlp[default,deno]>=2026.10.26",
+]
+
+[project.scripts]
+podcastify = "podcastify.cli:main"
+podcastify-ui = "podcastify.app:main"
+
+[build-system]
+requires = ["uv_build>=0.11,<0.12"]
+build-backend = "uv_build"

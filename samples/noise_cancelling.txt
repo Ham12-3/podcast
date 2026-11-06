@@ -1,0 +1,17 @@
+How Noise-Cancelling Headphones Work
+
+Noise-cancelling headphones can make a noisy train or a plane cabin feel surprisingly calm. They do this in two different ways, and the best models use both.
+
+The first way is called passive noise isolation. This is simply blocking sound with materials. Thick ear cushions, a tight seal around the ear and dense ear cups all stop some sound waves before they reach your ears. Passive isolation works best on high-pitched sounds, like people talking or a baby crying nearby. It is less effective against low, rumbling sounds, such as an aircraft engine, because long, low-frequency sound waves pass through materials more easily.
+
+The second way is called active noise cancellation, or ANC. Sound travels as waves of air pressure that go up and down. Small microphones on the outside of each ear cup listen to the noise around you. A tiny computer chip inside the headphones then creates a new sound wave that is the exact mirror image of the noise: when the noise wave goes up, the new wave goes down. When the two waves meet, they cancel each other out. Engineers call this destructive interference. The result is that much of the noise simply disappears before it reaches your ear.
+
+ANC is very good at steady, predictable sounds like engine hum, air conditioning or the drone of a fridge. It struggles with sudden or changing sounds, like a door slamming or a voice, because the chip has only a few thousandths of a second to react. That is why ANC and passive isolation work so well together: ANC handles the low rumble, and the cushions handle the higher sounds.
+
+Many headphones also have microphones inside the ear cup. These check what actually reaches your ear and correct any noise that slipped through. This is called hybrid ANC.
+
+There are some trade-offs. ANC needs battery power, so the headphones must be charged. Some people feel a slight pressure in their ears when ANC is switched on, a bit like being on a plane. And because the chip adds its own sound, cheaper models can produce a faint hiss.
+
+A popular extra feature is transparency mode. Here the outside microphones do the opposite job: instead of cancelling the noise, they pass it through to your ears so you can hear announcements or talk to someone without taking the headphones off.
+
+Researchers believe that blocking constant background noise can reduce tiredness on long journeys, and it lets people listen to music at a lower, safer volume.

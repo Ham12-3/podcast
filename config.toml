@@ -1,0 +1,72 @@
+# Podcastify settings.
+# Relative paths are resolved from the folder this file lives in.
+# Override the file location with --config or the PODCASTIFY_CONFIG env var.
+
+[general]
+output_dir = "output"
+cache_dir = "cache"
+keep_awake = true       # stop Windows sleeping / screen turning off while generating
+
+[extract]
+pdf_layout = true           # smart PDF reading: columns, headers/footers, hyphens (~1 s/page)
+skip_references = true      # drop the References / Bibliography section of papers
+keep_tables = false         # tables rarely work when spoken; true = pass them to the LLM
+web_timeout = 30            # seconds to wait for a web page
+youtube_languages = ["en"]  # caption languages to try, in order
+force_asr = false           # true = ignore YouTube captions and always transcribe locally
+max_video_minutes = 180     # refuse to transcribe longer videos (CPU ASR takes a while)
+
+[asr]
+# Local speech-to-text, used for YouTube videos without captions (via onnx-asr).
+# Other choices: "nemo-parakeet-tdt-0.6b-v2" (English only), "onnx-community/whisper-small".
+model = "nemo-parakeet-tdt-0.6b-v3"
+quantization = "int8"       # int8 = ~4x smaller download, faster on CPU; "" = full precision
+provider = "cpu"            # "cuda" with an NVIDIA GPU (see "Switching to an NVIDIA GPU" in README.md)
+vad_max_speech_s = 20.0     # long audio is split at pauses into pieces up to this long
+vad_min_silence_ms = 300
+
+[llm]
+# Any model you have pulled with `ollama pull <name>`.
+# CPU default: qwen3.5:4b. With a GPU later, try qwen3.5:9b or qwen3.5:27b.
+host = "http://localhost:11434"
+model = "qwen3.5:4b"
+temperature = 0.7
+num_ctx = 8192          # context window sent to Ollama
+think = false           # qwen3.5 can "think" first; off = much faster on CPU
+chunk_chars = 6000      # inputs longer than this are chunked and summarised first
+words_per_part = 400    # medium/long scripts are written in parts of about this size
+request_timeout = 900   # seconds per LLM call (CPU can be slow)
+keep_alive = "15m"      # keep the model loaded between calls
+unload_after_script = true  # free the LLM's RAM before TTS starts (helps on 16 GB)
+
+[script]
+default_length = "medium"   # short | medium | long
+show_name = "Podcastify"
+host_a_name = "Ava"         # Host A explains
+host_b_name = "Leo"         # Host B asks questions, reacts, adds examples
+words_per_minute = 150      # used to turn minutes into a word target
+
+[script.minutes]
+short = 3
+medium = 8
+long = 15
+
+[tts]
+backend = "kokoro"          # later: "vibevoice"
+
+[tts.kokoro]
+voice_a = "af_heart"        # Host A (female, US)
+voice_b = "am_michael"      # Host B (male, US)
+language = "en-us"
+speed = 1.0
+model_variant = "v1.0"
+model_quality = "fp32"      # fp32 = best quality; q8 = smaller/faster on CPU
+provider = "cpu"            # "cuda" with an NVIDIA GPU (see "Switching to an NVIDIA GPU" in README.md)
+
+[audio]
+pause_ms = 350              # silence between lines
+pause_jitter_ms = 120       # random +/- variation so pauses feel natural
+speaker_change_extra_ms = 100
+lead_in_ms = 400            # silence at the very start
+tail_ms = 800               # silence at the very end
+mp3_bitrate = "128k"
